@@ -6,7 +6,7 @@ Modelar a Pepita:
 
 * Es una instancia de la clase `Golondrina`
 * Puede `volar()`, lo cual descuenta su energia en 10 unidades
-* Puede `comer(alpista)`, lo cual aumenta su energia en 3 veces la cantidad de alpiste
+* Puede `comer(alpiste)`, lo cual aumenta su energia en 3 veces la cantidad de alpiste
 * Al crearla, es posible especificar su cantidad de energía inicial
 
 Ejemplo: 
