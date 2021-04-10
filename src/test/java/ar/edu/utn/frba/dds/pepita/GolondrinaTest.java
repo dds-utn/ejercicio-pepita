@@ -1,8 +1,7 @@
 package ar.edu.utn.frba.dds.pepita;
 
-import junit.framework.TestCase;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class GolondrinaTest {
 
@@ -10,7 +9,7 @@ public class GolondrinaTest {
   public void siComeAumentaSuEnergia() {
     Golondrina pepita = new Golondrina(40);
     pepita.comer(23);
-    Assert.assertEquals(109, pepita.getEnergia());
+    Assertions.assertEquals(109, pepita.getEnergia());
   }
 
   @Test
@@ -18,6 +17,6 @@ public class GolondrinaTest {
     Golondrina pepita = new Golondrina(40);
     pepita.comer(23);
     pepita.volar();
-    Assert.assertEquals(99, pepita.getEnergia());
+    Assertions.assertEquals(99, pepita.getEnergia());
   }
 }
