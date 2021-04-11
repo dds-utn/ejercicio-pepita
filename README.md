@@ -27,7 +27,7 @@ mvn test
 # Validar el proyecto de forma exahustiva
 
 ```
-mvn verify
+mvn clean verify
 ```
 
 Este comando hará lo siguiente:
@@ -43,7 +43,7 @@ Para entregar el proyecto, crear un tag llamado `entrega-final`. Es importante q
 explicada en el punto anterior. Se recomienda hacerlo de la siguiente forma:
 
 ```
-mvn verify && git tag entrega-final && git push origin HEAD --tags
+mvn clean verify && git tag entrega-final && git push origin HEAD --tags
 ```
 
 # Configuración del IDE (IntelliJ)
