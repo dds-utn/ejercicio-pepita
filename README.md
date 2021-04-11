@@ -53,3 +53,6 @@ mvn verify && git tag entrega-final && git push origin HEAD --tags
     1. Instalar el plugin https://plugins.jetbrains.com/plugin/1065-checkstyle-idea:
     2. Configurarlo activando los Checks de Google: ![Screenshot_2021-04-09_18-16-13](https://user-images.githubusercontent.com/677436/114242548-75132b00-9961-11eb-972e-28e6e1412979.png)
  3. Usar fin de linea unix
+    1. En **Settings/Preferences**, ir a a **Editor | Code Style**.
+    2. En la lista **Line separator**, seleccionar `Unix and OS X (\n)`.  
+ ![Screenshot 2021-04-10 03-49-00](https://user-images.githubusercontent.com/11875266/114260872-c6490c00-99ad-11eb-838f-022acc1903f4.png)
