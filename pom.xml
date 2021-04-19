@@ -16,6 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <output.directory.coverage.report>${project.reporting.outputDirectory}/reporte-cobertura</output.directory.coverage.report>
   </properties>
 
   <dependencies>
@@ -77,6 +78,17 @@
             </goals>
           </execution>
           <execution>
+            <id>Crear Reporte de Cobertura</id>
+            <phase>test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+            <configuration>
+              <dataFile>target/jacoco.exec</dataFile>
+              <outputDirectory>${output.directory.coverage.report}</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
             <id>Validar Cobertura</id>
             <phase>verify</phase>
             <goals>
@@ -95,6 +107,51 @@
                   </limits>
                 </rule>
               </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>Mostrar y Abrir Reporte Cobertura</id>
+            <phase>test</phase>
+            <configuration>
+              <target>
+                <echo level="info">"Reporte: ${project.reporting.outputDirectory}/reporte-cobertura/"</echo>
+                <echo level="info">Abra el archivo index.html navegador web</echo>
+                <script language="javascript"><![CDATA[
+                  location = "file:///${project.reporting.outputDirectory}/reporte-cobertura/index.html";
+                  java.awt.Desktop.getDesktop().browse(java.net.URI.create(location));
+                  ]]>
+                </script>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.gmaven</groupId>
+        <artifactId>groovy-maven-plugin</artifactId>
+        <version>2.0</version>
+        <executions>
+          <execution>
+            <id>Show Reporte Cobertura</id>
+            <phase>test</phase>
+            <goals>
+              <goal>execute</goal>
+            </goals>
+            <configuration>
+              <source>
+                log.info('Reporte Cobertura: {}', ' ${project.reporting.outputDirectory}/reporte-cobertura/')
+                log.info('Abra el archivo index.html con un navegador web')
+              </source>
             </configuration>
           </execution>
         </executions>
